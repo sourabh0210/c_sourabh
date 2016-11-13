@@ -1,0 +1,33 @@
+#include <stdio.h>
+void PRINT(int temp)
+{
+    int bit;
+    for(bit = 31 ;bit>=0;bit--)
+    {
+        printf("%d",(temp>>bit)&1);
+    }
+    printf("\n");
+}
+
+int main(void) {
+	// your code goes herer
+	union tag
+	{
+	    char arr[2];
+	    int i;
+	};
+	union tag var1;
+	var1.arr[0] =3;
+	printf("%d\n",var1.arr[0]);
+	PRINT((int)var1.arr[0]);
+	var1.arr[1] = 2;
+	printf("%d\n",var1.arr[1]);
+	PRINT((int)var1.arr[0]);
+	PRINT(var1.i);
+	printf("%d\n",var1.arr[0]);
+	printf("%d\n",var1.arr[1]);
+	printf("%d\n",var1.i);
+	
+	return 0;
+}
+
