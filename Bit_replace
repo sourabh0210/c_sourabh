@@ -1,0 +1,55 @@
+#include <stdio.h>
+void PRINT(int temp)
+{
+    int bit;
+    for(bit = 31 ;bit>=0;bit--)
+    {
+        printf("%d",(temp>>bit)&1);
+    }
+    printf("\n");
+}
+void MSB_bit(int n)
+{
+    int i,temp = n ,bit;
+    for(i = 31; i >= 0 ; i--)
+    {
+        bit = temp >> i;
+        if(bit == 1)
+        {
+            break;
+        }
+    }
+    //return i;
+    printf("MSB_bit = %d\n",i+1);
+}
+void bit_replace(int *var1,int *var2,int bit_pos1,int bit_pos2)
+{
+    int i;
+    for(i = bit_pos2 ; i>= bit_pos1; i--)
+    {
+        if((*var1&(1<<i)) != (*var2&(1<<i)))
+        {
+            *var1 = (*var1^((*var2&(1<<i))));
+            PRINT(*var1);
+        }
+    }
+    
+}
+
+int main() {
+	// your code goes here
+	int var1, var2, bit_pos1,bit_pos2;
+	var1 = 2056;
+	printf("%d\n",var1);
+    PRINT(var1);
+	var2 = 155;
+	printf("%d\n",var2);
+    PRINT(var2);
+    bit_pos1 = 0;
+    bit_pos2 = 7;
+    bit_replace(&var1,&var2,bit_pos1,bit_pos2);
+    printf("%d\n",var1);
+    
+	
+	return 0;
+}
