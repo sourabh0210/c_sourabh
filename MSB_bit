@@ -1,0 +1,39 @@
+#include <stdio.h>
+void PRINT(int temp)
+{
+    int bit;
+    for(bit = 31 ;bit>=0;bit--)
+    {
+        printf("%d",(temp>>bit)&1);
+    }
+    printf("\n");
+}
+void MSB_bit(int n)
+{
+    int i,temp = n ,bit;
+    for(i = 31; i >= 0 ; i--)
+    {
+        bit = temp >> i;
+        if(bit == 1)
+        {
+            break;
+        }
+    }
+    //return i;
+    printf("MSB_bit = %d\n",i+1);
+}
+int main() {
+	// your code goes here
+	int var1, var2, var3;
+	var1 = 155;
+    PRINT(var1);
+    MSB_bit(var1);
+	var2 = 2056;
+    PRINT(var2);
+    MSB_bit(var2);
+	var3 = 15;
+    PRINT(var3);
+    MSB_bit(var3);
+	
+	return 0;
+}
